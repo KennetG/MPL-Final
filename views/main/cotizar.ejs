@@ -1,0 +1,57 @@
+<% layout('layouts/plantilla') %>
+<section class="text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-bold text-secondary">Cotizar</h1>
+      <p class="lead text-muted">
+        Está a solo unos pasos de obtener el mueble que desea. <br />
+        Complete el siguiente formulario y nos pondremos en contacto con usted lo más pronto posible.
+      </p>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card mb-3">
+        <div class="card-body">
+          <form action="/cotizar" method="POST" novalidate class="validar">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre Completo</label>
+              <input type="text" class="form-control" name="cotizacion[nombre]" id="nombre" placeholder="Inserte nombre aquí" required />
+              <div class="invalid-feedback">Campo obligatorio.</div>
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <div class="mb-3">
+              <label for="telefono" class="form-label">Teléfono</label>
+              <input
+                type="text"
+                class="form-control"
+                name="cotizacion[telefono]"
+                id="telefono"
+                placeholder="Inserte teléfono aquí"
+                maxlength="8"
+                oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                required
+              />
+              <div class="invalid-feedback">Campo obligatorio.</div>
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Dirección de entrega (Opcional)</label>
+              <input type="text" class="form-control" name="cotizacion[direccion]" id="direccion" placeholder="Inserte nombre aquí" />
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripción del mueble a cotizar</label>
+              <textarea class="form-control" name="cotizacion[descripcion]" id="descripcion" cols="30" rows="5" placeholder="Describa los detalles del mueble que desea." required></textarea>
+              <div class="invalid-feedback">Campo obligatorio.</div>
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <button class="btn btn-primary">Cotizar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

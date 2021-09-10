@@ -1,0 +1,36 @@
+<% layout('layouts/adminPlantilla') %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <h3 class="text-center">Detalles de Cotización</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Nombre del Cliente:<br />
+                    <strong><%= cotizacion.nombre %></strong></h5>
+                <p class="card-text">
+                    <strong><i class="bi bi-telephone"></i>Teléfono</strong><br />
+                    <%= cotizacion.telefono %>
+                </p>
+                <p class="card-text">
+                    <strong>Dirección de Entrega: </strong><br />
+                    <%= cotizacion.direccion%>
+                </p>
+                <p class="card-text">
+                    <strong>Descripción de Cotización: </strong><br />
+                    <%= cotizacion.descripcion%>
+                </p>
+                <hr>
+                <p class="card-text">
+                    <strong>Detalles: </strong><br />
+                    <%= cotizacion.detalles == undefined ? "No se han agregado detalles por parte de la empresa." : cotizacion.detalles %>
+                </p>
+                <p class="card-text">
+                    <strong>Estado: </strong><br />
+                    <%= cotizacion.estado%>
+                </p>
+            </div>
+            <div class="card-footer text-muted">Modificado por: <%= cotizacion.modificadoPor == undefined ? "Sin cambios" : cotizacion.modificadoPor.username %></div>
+        </div>
+    </div>
+  </div>
+</div>

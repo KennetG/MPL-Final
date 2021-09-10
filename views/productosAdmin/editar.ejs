@@ -1,0 +1,75 @@
+<% layout('layouts/adminPlantilla') %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <h1>Editar Producto</h1>
+      <div class="card mb-3">
+        <div class="card-body">
+          <form action="/productos/<%= producto._id %>?_method=PUT" method="POST" novalidate class="validar mb-3" enctype="multipart/form-data">
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="producto[titulo]" id="nombre" value="<%= producto.titulo %>" required />
+                <div class="invalid-feedback">Campo obligatorio.</div>
+                <div class="valid-feedback">Datos válidos.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="categoria" class="form-label">Categoría</label>
+                <select class="form-select" name="producto[categoriaTienda]" id="categoria" required>
+                  <% for( let categoria of categorias ) { %> <option value="<%= categoria._id %>" <%= producto.categoriaTienda.equals(categoria._id) ? 'selected' : '' %>><%= categoria.nombre %> <% }
+                  %>
+                </select>
+                <div class="invalid-feedback">Campo obligatorio.</div>
+                <div class="valid-feedback">Datos válidos.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripción</label>
+              <textarea class="form-control" name="producto[descripcion]" id="descripcion" cols="30" rows="3" required><%= producto.descripcion %></textarea>
+              <div class="invalid-feedback">Campo obligatorio.</div>
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="inventario" class="form-label">Inventario</label>
+                <input height="288px" type="number" class="form-control" name="producto[inventario]" id="inventario" value="<%= producto.inventario %>" required />
+                <div class="invalid-feedback">Campo obligatorio.</div>
+                <div class="valid-feedback">Datos válidos.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="precio" class="form-label">Precio</label>
+                <input height="288px" type="number" class="form-control" name="producto[precio]" id="precio" value="<%= producto.precio %>" required />
+                <div class="invalid-feedback">Campo obligatorio.</div>
+                <div class="valid-feedback">Datos válidos.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="formFileMultiple" class="form-label">Imágenes</label>
+              <input class="form-control" type="file" id="formFileMultiple" name="image" accept="image/*" multiple />
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <div class="mb-3 col-sm-6">
+              <label for="estado" class="form-label">Estado</label>
+              <select class="form-select" name="producto[estado]" id="estado" required>
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+              </select>
+              <div class="invalid-feedback">Campo obligatorio.</div>
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <div class="row mb-3">
+              <h5>Delete Images</h5>
+              <% producto.images.forEach(function(img, i) { %>
+              <div class="col-md-6 mb-2 d-inline border-start border-end">
+                <input type="checkbox" class="" id="image-<%= i %>" name="deleteImages[]" value="<%= img.filename %>" />
+                <label class="" for="image-<%= i %>"> ¿Eliminar? <img src="<%= img.thumbnail %>" alt="#" class="img-fluid" /> </label>
+              </div>
+              <% }) %>
+            </div>
+            <button class="btn btn-primary">Guardar Cambios</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

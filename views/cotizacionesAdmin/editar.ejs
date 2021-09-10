@@ -1,0 +1,55 @@
+<% layout('layouts/adminPlantilla') %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <h1>Actualizar Cotización</h1>
+      <div class="card mb-3">
+        <div class="card-body">
+          <form action="/cotizaciones/<%= cotizacion._id %>?_method=PUT" method="POST" novalidate class="validar">
+            <div class="row">
+              <div class="col mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="cotizacion[nombre]" id="nombre" value="<%= cotizacion.nombre %>" required />
+                <div class="invalid-feedback">Campo obligatorio.</div>
+                <div class="valid-feedback">Datos válidos.</div>
+              </div>
+              <div class="col mb-3">
+                <label for="telefono" class="form-label">Teléfono <i class="bi bi-telephone"></i></label>
+                <input type="text" class="form-control" name="cotizacion[telefono]" id="telefono" value="<%= cotizacion.telefono %>" required maxlength="8" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                <div class="invalid-feedback">Campo obligatorio.</div>
+                <div class="valid-feedback">Datos válidos.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="direccion" class="form-label">Dirección de Entrega</label>
+              <textarea rows="4" class="form-control" name="cotizacion[direccion]" id="direccion" placeholder="Inserte dirección aquí" ><%= cotizacion.direccion %></textarea>
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripción de la Cotización</label>
+              <input type="text" class="form-control" name="cotizacion[descripcion]" id="descripcion" placeholder="Inserte descripcion aquí" value="<%= cotizacion.descripcion %>" />
+              <div class="invalid-feedback">Campo obligatorio.</div>
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <hr />
+            <div class="mb-3">
+              <label for="detalles" class="form-label">Detalles adicionales</label>
+              <textarea class="form-control" rows="4" name="cotizacion[detalles]" id="detalles" placeholder="Inserte detalles aquí"><%= cotizacion.detalles %></textarea>
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <div class="mb-3">
+              <label for="estado" class="form-label">Estado</label>
+              <select class="form-select form-select-md" name="cotizacion[estado]" id="estado">
+                <option value="Nuevo" <%= cotizacion.estado == "Nuevo" ? 'selected' : '' %>> Nuevo</option>                
+                <option value="Pendiente" <%= cotizacion.estado == "Pendiente" ? 'selected' : '' %>> Pendiente</option>                
+                <option value="En Progreso" <%= cotizacion.estado == "En Progreso" ? 'selected' : '' %>> En Progreso</option>                
+                <option value="Finalizado" <%= cotizacion.estado == "Finalizado" ? 'selected' : '' %>> Finalizado</option>                    
+              </select>
+            </div>
+            <button class="btn btn-primary">Guardar Cambios</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

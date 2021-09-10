@@ -1,0 +1,25 @@
+<% layout('layouts/adminPlantilla') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1>Editar Categoría</h1>
+      <div class="card">
+        <div class="card-body">
+          <form action="/categorias/<%= categoria._id %>?_method=PUT" method="POST" novalidate class="validar">
+            <div class="mb-3">
+              <label for="anterior" class="form-label">Nombre actual</label>
+              <input type="text" class="form-control" id="anterior" disabled value="<%= categoria.nombre %>" />
+            </div>
+            <div class="mb-3">
+              <label for="categoria" class="form-label d-block">Nombre nuevo</label>
+              <input type="text" class="form-control" name="categoria[nombre]" id="categoria" value="<%= categoria.nombre %>" required />
+              <div class="invalid-feedback">Campo obligatorio.</div>
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <button class="btn btn-primary">Guardar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

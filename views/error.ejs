@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error</title>
+    <link href="/custom.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="icon" href="/img/iconMPL.jpeg" />
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <main class="container mt-5">
+      <div class="row">
+        <div class="col-6 offset-3">
+          <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Ha ocurrido un error. <br /><%= err.message %></h4>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="mt-auto bg-dark footer">
+      <div class="container">
+        <p class="m-0 text-muted text-center">© Kennet Guevara</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

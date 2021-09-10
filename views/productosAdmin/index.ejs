@@ -1,0 +1,51 @@
+<% layout('layouts/adminPlantilla') %> <% layout('layouts/adminPlantilla') %>
+<h1 class="d-flex">Panel de Productos</h1>
+<a href="/productos/nuevo"><button class="btn btn-primary">Nuevo Producto</button></a>
+<div class="row">
+  <div class="col mt-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle table-bordered">
+            <thead class="text-center">
+              <th>Categoría</th>
+              <th>Título</th>
+              <th>Inventario</th>
+              <th>Precio</th>
+              <th>Imagen</th>
+              <th>Detalles</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </thead>
+            <tbody>
+              <% for( let producto of productos ) { %>
+              <tr>
+                <td><%= producto.categoriaTienda.nombre %></td>
+                <td><%= producto.titulo %></td>
+                <td><%= producto.inventario %></td>
+                <td>₡ <%= producto.precio %></td>
+                <% if (producto.images.length) { %>
+                <td><img src="<%= producto.images[0].thumbnail %>" alt="" /></td>
+                <% } else { %>
+                <td><img src="https://res.cloudinary.com/dmi3zyqqf/image/upload/v1621294364/mpl/no_picture_zf7mbj_oghqup.png" alt="no image" class="img-fluid" /></td>
+                <% } %>
+                <td class="text-center">
+                  <a href="/productos/<%= producto._id %>/detalle"><i class="bi bi-eye text-primary"></i></a>
+                </td>
+                <td class="text-center">
+                  <a href="/productos/<%= producto._id %>/editar"><i class="bi bi-pencil text-primary"></i></a>
+                </td>
+                <td class="text-center">
+                  <form action="/productos/<%= producto._id %>?_method=DELETE" method="post">
+                    <button class="btn btn-primary"><i class="bi bi-trash"></i></button>
+                  </form>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

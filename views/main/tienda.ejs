@@ -1,0 +1,50 @@
+<% layout('layouts/plantilla') %>
+<section class="text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-bold text-secondary">Mueblería Pérez Luna</h1>
+      <p class="lead text-muted">Estos son nuestros productos disponibles para la venta. Si alguno llama su atención no dude en contactarnos.</p>
+      <p>
+        <a href="/cotizar" class="btn btn-primary my-2"><i class="bi bi-cash-stack"></i> Cotizar</a>
+        <a href="/contacto" class="btn btn-primary my-2"><i class="bi bi-telephone"></i> Contacto</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="album bg-light mb-3">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <% for( let producto of productos ) { %>
+      <div class="col">
+        <div class="card shadow-sm h-100 w-100">
+          <div id="carruselDetalle" class="carousel slide carousel-dark card-img-top" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <% producto.images.forEach((img, i) => { %>
+              <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+                <img src="<%= img.url %>" class="d-block img-fluid" alt="Imagen del producto" />
+              </div>
+              <% }) %>
+            </div>
+            <% if (producto.images.length > 1) { %>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carruselDetalle" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carruselDetalle" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+            <% } %>
+          </div>
+          <div class="card-header"><%= producto.titulo %></div>
+          <div class="card-body">
+            <p class="card-title h5">₡ <%= producto.precio %></p>
+            <p class="card-text"><%= producto.descripcion %></p>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>

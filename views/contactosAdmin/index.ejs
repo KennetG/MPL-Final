@@ -1,0 +1,43 @@
+<% layout('layouts/adminPlantilla') %>
+<h1 class="d-flex">Panel de Contactos</h1>
+<a href="/contactos/nuevo"><button class="btn btn-primary">Nuevo Contacto</button></a>
+<div class="row">
+  <div class="col mt-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover table-bordered align-middle">
+            <thead class="text-center">
+              <th>Nombre</th>
+              <th>Teléfono</th>
+              <th>Dirección</th>
+              <th>Detalles</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </thead>
+            <tbody>
+              <% for( let contacto of contactos ) { %>
+              <tr>
+                <td><%= contacto.nombre %></td>
+                <td><%= contacto.telefono1 %></td>
+                <td><%= contacto.direccion1 %></td>
+                <td class="text-center">
+                  <a href="/contactos/<%= contacto._id %>/detalle"><i class="bi bi-eye text-primary"></i></a>
+                </td>
+                <td class="text-center">
+                  <a href="/contactos/<%= contacto._id %>/editar"><i class="bi bi-pencil text-primary"></i></a>
+                </td>
+                <td class="text-center">
+                  <form action="/contactos/<%= contacto._id %>?_method=DELETE" method="post">
+                    <button class="btn btn-primary"><i class="bi bi-trash"></i></button>
+                  </form>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

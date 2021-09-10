@@ -1,0 +1,58 @@
+<% layout('layouts/adminPlantilla') %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <h1>Editar Contacto</h1>
+      <div class="card mb-3">
+        <div class="card-body">
+          <form action="/contactos/<%= contacto._id %>?_method=PUT" method="POST" novalidate class="validar">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" name="contacto[nombre]" id="nombre" value="<%= contacto.nombre %>" required />
+              <div class="invalid-feedback">Campo obligatorio.</div>
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <div class="mb-3">
+              <label for="tipo" class="form-label">Tipo de Contacto</label>
+              <select class="form-select" name="contacto[tipo]" id="tipo" required>
+                <option value="Cliente" <%= "Cliente" == contacto.tipo ? 'selected' : '' %>>Cliente</option>
+                <option value="Proveedor" <%= "Proveedor" == contacto.tipo ? 'selected' : '' %>>Proveedor</option>
+              </select>
+              <div class="invalid-feedback">Campo obligatorio.</div>
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 mb-3">
+                <label for="telefono1" class="form-label">Teléfono Principal <i class="bi bi-telephone"></i></label>
+                <input type="text" class="form-control" name="contacto[telefono1]" id="telefono1" value="<%= contacto.telefono1 %>" maxlength="8" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required />
+                <div class="invalid-feedback">Campo obligatorio.</div>
+                <div class="valid-feedback">Datos válidos.</div>
+              </div>
+              <div class="col-sm-6 mb-3">
+                <label for="telefono2" class="form-label">Teléfono Secundario <i class="bi bi-telephone-plus"></i></label>
+                <input type="text" class="form-control" name="contacto[telefono2]" id="telefono2" placeholder="Inserte teléfono aquí" value="<%= contacto.telefono2 %>" maxlength="8" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                <div class="valid-feedback">Datos válidos.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="direccion1" class="form-label">Dirección Principal</label>
+              <input type="text" class="form-control" name="contacto[direccion1]" id="direccion1" placeholder="Inserte dirección aquí" value="<%= contacto.direccion1 %>" />
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <div class="mb-3">
+              <label for="direccion2" class="form-label">Dirección Secundaria</label>
+              <input type="text" class="form-control" name="contacto[direccion2]" id="direccion2" placeholder="Inserte dirección aquí" value="<%= contacto.direccion2 %>" />
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <div class="mb-3">
+              <label for="empresa" class="form-label">Nombre de la Empresa</label>
+              <input type="text" class="form-control" name="contacto[empresa]" id="empresa" placeholder="Inserte empresa aquí" value="<%= contacto.empresa %>" />
+              <div class="valid-feedback">Datos válidos.</div>
+            </div>
+            <button class="btn btn-primary">Guardar Cambios</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<% layout('layouts/adminPlantilla') %>
+<div class="row mb-3">
+  <div class="col-md-6 mb-3">
+    <h3>Detalles del Producto</h3>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Título: <%= producto.titulo %></h5>
+        <p class="card-text">
+          <strong>Descripción: </strong><br />
+          <%= producto.descripcion %>
+        </p>
+        <p class="card-text">
+          <strong>Categoría: </strong><br />
+          <%= producto.categoriaTienda.nombre %>
+        </p>
+        <p class="card-text">
+          <strong>Inventario: </strong><br />
+          <%= producto.inventario %>
+        </p>
+        <p class="card-text">
+          <strong>Precio: </strong><br />
+          ₡ <%= producto.precio %>
+        </p>
+        <p class="card-text">
+          <strong>Estado: </strong><br />
+          <%= producto.estado %>
+        </p>
+        <a href="/productos/<%= producto._id %>/editar" class="btn btn-primary">Editar <i class="bi bi-pencil"></i></a>
+      </div>
+      <div class="card-footer text-muted">Modificado por: <%= producto.modificadoPor.username %></div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <h3>Imágenes</h3>
+    <div id="carruselDetalle" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% producto.images.forEach((img, i) => { %>
+        <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+          <img src="<%= img.url %>" class="d-block img-fluid" alt="" />
+        </div>
+        <% }) %>
+      </div>
+      <% if (producto.images.length > 1) { %>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carruselDetalle" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carruselDetalle" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+      <% } %>
+    </div>
+  </div>
+</div>

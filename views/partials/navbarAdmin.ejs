@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-md navbar-light bg-primary mb-3" id="nav">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler ms-auto bg-light text-secondary"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav nav-pills">
+        <li class="nav-item">
+          <a href="/admin" class="nav-link text-light text-center"><img src="/img/iconMPL.jpeg" width="30" alt="Logo de la Empresa" />Inicio <i class="bi bi-house-door"></i></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link text-light text-center dropdown-toggle" href="#" id="proyectosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            >Proyectos <i class="bi bi-truck-flatbed"></i
+          ></a>
+          <ul class="dropdown-menu" aria-labelledby="proyectosDropdown">
+            <li>
+              <a class="dropdown-item" href="/categorias">Categorías <i class="bi bi-bookmark"></i></a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/proyectos">Pánel de Proyectos <i class="bi bi-table"></i></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link text-light text-center dropdown-toggle" href="#" id="tiendaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tienda <i class="bi bi-shop"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="tiendaDropdown">
+            <li>
+              <a class="dropdown-item" href="/categoriasTienda">Categorías <i class="bi bi-bookmark"></i></a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/productos">Pánel de Tienda <i class="bi bi-table"></i></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="/cotizaciones" class="nav-link text-light text-center">Cotizaciones <i class="bi bi-receipt"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="/contactos" class="nav-link text-light text-center">Contactos <i class="bi bi-person-lines-fill"></i></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link text-light text-center dropdown-toggle bg-dark" href="#" id="usuarioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            ><i class="bi bi-door-open-fill"></i
+          ></a>
+          <ul class="dropdown-menu" aria-labelledby="usuarioDropdown">
+            <li><a class="dropdown-item" href="/">Página Pública</a></li>
+            <li><a class="dropdown-item" href="/usuarios">Ver Usuarios</a></li>
+            <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

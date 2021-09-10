@@ -1,0 +1,38 @@
+<% layout('layouts/adminPlantilla') %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <h3 class="text-center">Detalles del Contacto</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Nombre: <%= contacto.nombre %></h5>
+                <p class="card-text">
+                    <strong></i>Tipo: </strong><br />
+                    <%= contacto.tipo %>
+                </p>
+                <p class="card-text">
+                    <strong><i class="bi bi-telephone"></i>Teléfono Principal: </strong><br />
+                    <%= contacto.telefono1 %>
+                </p>
+                <p class="card-text">
+                    <strong><i class="bi bi-telephone-plus"></i>Teléfono Secundario: </strong><br />
+                    <%= contacto.telefono2 != '' ?  contacto.telefono2 : "N/A" %>
+                </p>
+                <p class="card-text">
+                    <strong>Dirección Principal: </strong><br />
+                    <%= contacto.direccion1 != '' ?  contacto.direccion1 : "N/A" %>
+                </p>
+                <p class="card-text">
+                    <strong>Dirección Secundaria: </strong><br />
+                    <%= contacto.direccion2 != '' ?  contacto.direccion2 : "N/A" %>
+                </p>
+                <p class="card-text">
+                    <strong>Empresa: </strong><br />
+                    <%= contacto.empresa != '' ?  contacto.empresa : "N/A" %>
+                </p>
+            </div>
+            <div class="card-footer text-muted">Modificado por: <%= contacto.modificadoPor.username %></div>
+        </div>
+    </div>
+  </div>
+</div>

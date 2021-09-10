@@ -1,0 +1,47 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Mulish", sans-serif;
+}
+
+.nav li a,
+.nav li a:after,
+.nav li a:before {
+  position: relative;
+  transition: all 0.5s;
+}
+
+.nav li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: ".";
+  color: transparent;
+  background: #aaa;
+  height: 2px;
+}
+
+.nav li a:hover:after {
+  width: 100%;
+}
+
+.nav li a:hover {
+  background-color: #bb6225;
+}
+
+.proy-img {
+  min-height: 200px;
+  max-height: 250px;
+}
+
+.btn:hover {
+  background-color: #bb6225;
+  border-color: #bb6225;
+  color: white;
+}

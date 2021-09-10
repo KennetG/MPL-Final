@@ -1,0 +1,148 @@
+<% layout('layouts/plantilla') %>
+<div class="px-4 px-lg-5">
+  <!-- Encabezado-->
+  <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0 align-self-center" src="img/acerca-de.jpg" alt="..." /></div>
+    <div class="col-lg-5">
+      <img src="img/mpl_logo.png" alt="Logo de la empresa" class="img-fluid mx-auto d-block" width="250px">
+      <h2 class="font-weight-light text-center">El Arte de la Madera</h1>
+      <p>
+        En cada mueble buscamos reflejar <em>“el arte de la madera”</em>. Nos gusta trabajar con la mejor calidad para nuestros clientes, es por eso que nuestros muebles son para toda la vida,
+        <strong>de generación en generación.</strong>
+      </p>
+      <p class="text-center m-0">
+      <a class="btn btn-primary" href="/cotizar">Cotice su mueble con nosotros.</a>
+    </p>
+    </div>
+  </div>
+  <hr />
+  <div class="card text-white bg-primary my-5 py-4 text-center">
+    <div class="card-body">
+      <p class="text-white m-0">
+        Mueblería Pérez Luna es una empresa que desea transmitir a todos sus colaboradores el buen espíritu de hacer las cosas con excelencia. <br />
+        Podrás verlo en cada uno de los acabados de nuestros muebles. Son acabados hechos con excelencia y compromiso.
+      </p>
+    </div>
+  </div>
+  <hr />
+  <!-- Trabajos -->
+  <h3 class="text-center">Algunos de Nuestros Trabajos Recientes</h3>
+  <div class="row gx-4 gx-lg-5">
+    <% for(let proyecto of proyectos) { %>
+      <div class="row align-items-center my-5">
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0 align-self-center" src="<%= proyecto.images[0].url %>" alt="Imagen de <%= proyecto.titulo %>" /></div>
+        <div class="col-lg-5">
+          <h2 class="font-weight-light text-center"><%= proyecto.titulo %></h1>
+          <hr>
+          <p>
+            <%= proyecto.descripcion %>
+          </p>
+          <p class="text-muted">Categoría: <%= proyecto.categoria.nombre %> <br> <%= proyecto.fecha %></p>
+        </div>
+      </div>    
+    <% } %>
+  </div>
+  <p class="text-center mt-2">
+    <a class="btn btn-primary btn-lg" href="/trabajos">Ver Todos los Trabajos <i class="bi bi-hammer"></i></a>
+  </p>
+  <hr />
+  <!-- Preguntas Frecuentes -->
+  <div class="row">
+    <div class="col-md-7">
+      <h3>Preguntas Frecuentes</h3>
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              ¿Instalan en todo el país?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">Sí, instalamos en todos los hogares de toda Costa Rica.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              ¿El transporte tiene costo adicional?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">Dependiendo del lugar el transporte tendrá un costo adicional.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              ¿Qué tipo de madera usan para sus muebles?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Utilizamos maderas de muy alta calidad como lo son el Cenízaro y Guanacaste como bases. También realizamos cotizaciones en otras maderas como cedro, laurel, entre otros.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+              ¿Cuentan con algún sistema de crédito o plan de pagos?
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Sí, puede adquirir nuestros muebles al crédito. La entrega del mueble se hará una vez se haya completado el pago del 75% del valor. El 25% restante lo podrá cancelar a un plazo de un
+              mes. <br />
+              También contamos con el sistema de financiamiento de minicuotas del BAC.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+              ¿Cuánto tardan en entregar un mueble?
+            </button>
+          </h2>
+          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Trabajamos fuertemente para entregar los muebles en un plazo de entre 8 y 24 días según el mueble. <br />
+              En promedio se estiman los siguientes plazos: <br />
+              <ul>
+                <li>De 8 a 14 días las camas.</li>
+                <li>De 14 a 22 días muebles de cocina o relacionados.</li>
+                <li>De 22 a 24 días los juegos de sala.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 align-self-center">
+      <img src="img/faqimg.jpg" class="img-fluid mh-25" height="" alt="" />
+    </div>
+  </div>
+  <!-- Redes Sociales -->
+  <div class="row mt-5 mb-3 bg-light">
+    <div class="col align-self-center mb-4">
+      <h3 class="text-center">Nuestras Redes Sociales</h3>
+      <a href="https://www.facebook.com/muebleriaperezluna" class="btn btn-sm btn-primary my-2" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"> /muebleriaperezluna</i></a>
+      <a href="https://www.instagram.com/muebleriaperezluna" class="btn btn-sm btn-primary my-2" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"> /muebleriaperezluna</i></a>
+      <a href="http://wa.link/2psrlq" class="btn btn-sm btn-primary my-2"><i class="bi bi-whatsapp" target="_blank" rel="noopener noreferrer"> +506-8951-8625</i></a>
+    </div>
+    <!-- Mapa -->
+    <div class="col mx-auto">
+      <h3 class="text-center">Visítenos en Sarchí</h3>
+      <div class="d-flex justify-content-center">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2236.685324524948!2d-84.33988782823685!3d10.084117843524528!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x82cef64c31ce1183!2sMuebler%C3%ADa%20P%C3%A9rez%20Luna!5e0!3m2!1ses-419!2sus!4v1624211957653!5m2!1ses-419!2sus"
+        width="300"
+        height="280"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        title="Mapa Local"
+      ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
